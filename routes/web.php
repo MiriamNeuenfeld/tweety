@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::post('/tweets', [App\Http\Controllers\TweetController::class, 'store']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
