@@ -86,7 +86,7 @@
                 <ul class="flex flex-col space-y-2 sm:flex-row sm:flex-wrap sm:space-x-8 sm:space-y-0">
                     @auth
                         <li>
-                            <a href="{{ url('/home') }}"
+                            <a href="{{ url('/tweets') }}"
                                class="no-underline hover:underline text-sm font-normal text-teal-800 uppercase">{{ __('Home') }}</a>
                         </li>
                     @else
