@@ -17,15 +17,15 @@ trait Followable {
     }
 
     public function toggleFollow(User $user) {
-        if ($this->isFollowing($user)) {
-            return $this->unfollow();
+        if ($this->following($user)) {
+            return $this->unfollow($user);
         }
 
-        return $this->follow();
+        return $this->follow($user);
 
     }
 
-    public function isFollowing(User $user) {
+    public function following(User $user) {
         return $this->follows()
             ->where('following_user_id', $user->id)
             ->exists();
