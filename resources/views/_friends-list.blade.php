@@ -9,9 +9,8 @@
                     <img
                         src="{{ $user->avatar }}"
                         alt=""
-                        class="rounded-full mr-2"
-                        width="40"
-                        height="40"
+                        class="rounded-full mr-2 object-cover w-full"
+                        style="width: 40px; height: 40px"
                     >
 
                     {{ $user->name }}

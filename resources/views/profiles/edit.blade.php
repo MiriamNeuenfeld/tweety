@@ -51,16 +51,23 @@
         </label>
 
         <div class="flex">
-            <input class="border border-gray-400 p-2 w-full"
+            <input class="border border-gray-400 p-2 w-full mr-2"
                    type="file"
                    name="avatar"
                    id="avatar"
                    accept="image/*"
             >
 
-            <img src="{{ $user->avatar }}"
-                 alt="your avatar"
-                 width="40"
+{{--            <img src="{{ $user->avatar }}"--}}
+{{--                 alt="your avatar"--}}
+{{--                 width="40"--}}
+{{--            >--}}
+
+            <img
+                src="{{ $user->avatar }}"
+                alt="your avatar"
+                class="rounded-full mr-2 object-cover w-full"
+                style="width: 50px; height: 50px"
             >
         </div>
 
