@@ -24,7 +24,7 @@
     <section class="px-8 py-4 mb-6">
         <header class="container mx-auto">
             <h1>
-                <img src="/images/Tweety.gif" alt="Tweety" size="100" class="logo">
+                <img src="/images/logo.gif" alt="Tweety" width="70" height="70">
             </h1>
         </header>
     </section>
@@ -39,7 +39,9 @@
                     @yield('content')
                 </div>
                 <div class="lg:w-1/6">
-                    @include('_friends-list')
+                    @if(auth()->user())
+                        @include('_friends-list')
+                    @endif
                 </div>
             </div>
         </main>
