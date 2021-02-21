@@ -23,6 +23,6 @@ class TweetController extends Controller {
             'body' => $attributes['body']
         ]);
 
-        return redirect('/tweets.index');
+        return redirect('/tweets');
     }
 }
