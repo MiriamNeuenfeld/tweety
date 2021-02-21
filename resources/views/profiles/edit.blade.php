@@ -1,5 +1,5 @@
 <x-app>
-    <form method="POST" action="{{ $user->path() }}"></form>
+    <form method="POST" action="{{ $user->path() }}" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
 
@@ -19,7 +19,7 @@
         >
 
         @error('name')
-        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
         @enderror
     </div>
 
@@ -65,7 +65,7 @@
         </div>
 
         @error('avatar')
-        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
         @enderror
     </div>
 

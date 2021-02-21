@@ -13,18 +13,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, Followable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'username',
-        'avatar',
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -46,7 +35,8 @@ class User extends Authenticatable
     ];
 
     public function getAvatarAttribute($value) {
-        return asset($value ?: '/images/default-avatar.gif');
+        return asset('storage/' . $value);
+//        return asset($value ?: '/images/default-avatar.gif');
     }
 
     public function timeline() {
@@ -61,7 +51,8 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function path($append = '') {
+    public function path($append = '')
+    {
         $path = route('profile', $this->username);
 
         return $append ? "{$path}/{$append}" : $path;

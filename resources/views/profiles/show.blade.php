@@ -4,13 +4,14 @@
         <div class="relative">
             <img src="/images/default-profile-banner.jpg"
                  alt=""
-                 class="mb-2 rounded-lg"
+                 class="mb-2 rounded-lg object-cover w-full"
+                 style="height: 200px"
             >
 
             <img src="{{ $user->avatar }}"
                  alt=""
-                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
-                 style="left: 50%"
+                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2 object-cover w-full"
+                 style="left: 50%; width: 150px; height: 150px"
                  width="150"
             >
         </div>
