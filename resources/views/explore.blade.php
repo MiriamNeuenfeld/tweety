@@ -21,7 +21,6 @@
             @endforeach
         </div>
 
-
         <div>
             {{ $users->links() }}
         </div>
