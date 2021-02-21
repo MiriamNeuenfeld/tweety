@@ -35,8 +35,15 @@ class User extends Authenticatable
     ];
 
     public function getAvatarAttribute($value) {
-        return asset('storage/' . $value);
-//        return asset($value ?: '/images/default-avatar.gif');
+        if ($value) {
+            return asset('storage/' . $value);
+        }
+
+        return asset('/images/default-avatar.gif');
+    }
+
+    public function getPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline() {
