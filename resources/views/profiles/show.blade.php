@@ -1,21 +1,17 @@
-@extends('profiles.resources.views.components.app')
-
-@section('content')
+<x-app>
     <header class="mb-6 relative">
 
         <div class="relative">
-            <img
-                src="/images/default-profile-banner.jpg"
-                alt=""
-                class="mb-2 object-cover h-75 w-full rounded-lg"
+            <img src="/images/default-profile-banner.jpg"
+                 alt=""
+                 class="mb-2 rounded-lg"
             >
 
-            <img
-                src="{{ $user->avatar }}"
-                alt="your avatar"
-                class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 -translate-y-1/2"
-                style="left: 50%"
-                width="150"
+            <img src="{{ $user->avatar }}"
+                 alt=""
+                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
+                 style="left: 50%"
+                 width="150"
             >
         </div>
 
@@ -44,4 +40,4 @@
     @include('_timeline', [
         'tweets' => $user->tweets
     ])
-@endsection
+</x-app>
