@@ -46,7 +46,7 @@ class User extends Authenticatable
     ];
 
     public function getAvatarAttribute($value) {
-        return asset($value ?: '/images/default-avatar.jpeg');
+        return asset($value ?: '/images/default-avatar.gif');
     }
 
     public function timeline() {
