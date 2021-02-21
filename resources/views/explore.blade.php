@@ -1,6 +1,6 @@
 <x-app>
     <div>
-        <div class="grid grid-cols-2 gap-4 mb-5">
+        <div class="grid grid-cols-3 gap-4 mb-5">
             @foreach($users as $user)
                 <a href="{{ $user->path() }}" class="flex items-center">
                     <img
