@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use App\Likable;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
 
-class Tweet extends Model
-{
-    use HasFactory;
+class Tweet extends Model {
+    use HasFactory, Likable;
 
     protected $guarded = [];
 
