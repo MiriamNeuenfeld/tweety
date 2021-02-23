@@ -21,7 +21,7 @@
     </li>
 
     <li>
-        <form action="POST" action="/logout">
+        <form method="POST" action="/logout">
             @csrf
 
             <button class="font-bold text-lg">Logout</button>
