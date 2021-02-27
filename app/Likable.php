@@ -1,13 +1,22 @@
 <?php
 
-
 namespace App;
-
 
 use App\Models\Like;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Builder;
 
 trait Likable {
+
+    public function scopeWithLikes(Builder $query)
+    {
+        $query->leftJoinSub(
+            'select tweet_id, count(liked) as likes, count(!liked) as dislikes from likes group by tweet_id',
+            'likes',
+            'likes.tweet_id',
+            'tweets.id'
+        );
+    }
 
     public function like(User $user = null, $liked = true) {
         $this->likes()->updateOrCreate([
@@ -22,11 +31,17 @@ trait Likable {
     }
 
     public function isLikedBy(User $user) {
-        return (bool) $this->likes->where('tweet_id', $this->id)->where('likes', true)->count();
+        return (bool) $user->likes
+            ->where('tweet_id', $this->id)
+            ->where('liked', true)
+            ->count();
     }
 
     public function isDislikedBy(User $user) {
-        return (bool) $this->likes->where('tweet_id', $this->id)->where('likes', false)->count();
+        return (bool) $user->likes
+            ->where('tweet_id', $this->id)
+            ->where('liked', false)
+            ->count();
     }
 
     public function likes() {
