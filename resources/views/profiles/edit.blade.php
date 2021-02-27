@@ -45,6 +45,26 @@
 
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="description"
+            >
+                Description
+            </label>
+
+            <textarea class="border border-gray-400 p-2 w-full"
+                   type="text"
+                   name="description"
+                   id="description"
+                   value="{{ $user->description }}"
+                   required
+            >{{ $user->description }}</textarea>
+
+            @error('description')
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
                    for="avatar"
             >
                 Avatar
@@ -71,6 +91,33 @@
             @enderror
         </div>
 
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="banner"
+            >
+                Banner
+            </label>
+
+            <div class="flex">
+                <input class="border border-gray-400 p-2 w-full mr-2"
+                       type="file"
+                       name="banner"
+                       id="banner"
+                       accept="image/*"
+                >
+
+                <img
+                    src="{{ $user->banner }}"
+                    alt="your banner"
+                    class="rounded-full mr-2 object-cover w-full"
+                    style="width: 50px; height: 50px"
+                >
+            </div>
+
+            @error('banner')
+            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
 
         <div class="mb-6">
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700"

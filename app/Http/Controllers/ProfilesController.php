@@ -30,6 +30,7 @@ class ProfilesController extends Controller
                 Rule::unique('users')->ignore($user),
             ],
             'name' => ['string', 'required', 'max:255'],
+            'description' => ['string', 'max:255'],
             'avatar' => ['file'],
             'email' => [
                 'string',
@@ -38,16 +39,14 @@ class ProfilesController extends Controller
                 'max:255',
                 Rule::unique('users')->ignore($user),
             ],
-            'password' => [
-                'string',
-                'min:8',
-                'max:255',
-                'confirmed',
-            ],
         ]);
 
         if (request('avatar')) {
             $attributes['avatar'] = request('avatar')->store('avatars');
+        }
+
+        if (request('banner')) {
+            $attributes['banner'] = request('banner')->store('banners');
         }
 
         $user->update($attributes);

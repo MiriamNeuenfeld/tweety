@@ -19,6 +19,8 @@ trait Likable {
     }
 
     public function like(User $user = null, $liked = true) {
+
+
         $this->likes()->updateOrCreate([
             'user_id' => $user ? $user->id : auth()->id(),
         ], [
@@ -28,6 +30,10 @@ trait Likable {
 
     public function dislike(User $user = null) {
         return $this->like($user, false);
+    }
+
+    public function remove(User $user) {
+        return $this->likes()->delete($user);
     }
 
     public function isLikedBy(User $user) {

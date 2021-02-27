@@ -21,7 +21,14 @@
         </p>
 
         @auth
-            <x-like-buttons :tweet="$tweet" />
+            @if (current_user() != $tweet->user)
+                <x-like-buttons :tweet="$tweet"/>
+            @endif
         @endauth
     </div>
+    @auth
+        @if (current_user() == $tweet->user)
+            <x-delete-button :tweet="$tweet"/>
+        @endif
+    @endauth
 </div>

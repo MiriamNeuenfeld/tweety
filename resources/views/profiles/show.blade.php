@@ -2,7 +2,7 @@
     <header class="mb-6 relative">
 
         <div class="relative">
-            <img src="/images/default-profile-banner.jpg"
+            <img src="{{ $user->banner }}"
                  alt=""
                  class="mb-2 rounded-lg object-cover w-full"
                  style="height: 200px"
@@ -33,8 +33,7 @@
         </div>
 
         <div class="text-sm">
-            Bugs Bunny ist der Name eines Trickfilm-Hasen oder -Kaninchens, der den Warner-Bros.-Zeichentrick-Studios
-            entstammt.
+            {{ $user->description }}
         </div>
     </header>
 
