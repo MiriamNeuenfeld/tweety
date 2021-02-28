@@ -1,5 +1,6 @@
 <div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
-    <form method="POST" action="/tweets">
+{{--    @include('flash-message')--}}
+    <form method="POST" action="/tweets" enctype="multipart/form-data">
         @csrf
                     <textarea
                         name="body"
@@ -8,6 +9,29 @@
                         required
                         autofocus
                     ></textarea>
+
+        <hr class="my-4">
+
+        <div class="mb-6">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                   for="image"
+            >
+                Image
+            </label>
+
+            <div class="flex">
+                <input class="border border-gray-400 p-2 w-full mr-2"
+                       type="file"
+                       name="image"
+                       id="image"
+                       accept="image/*"
+                >
+            </div>
+
+            @error('image')
+                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+            @enderror
+        </div>
 
         <hr class="my-4">
 

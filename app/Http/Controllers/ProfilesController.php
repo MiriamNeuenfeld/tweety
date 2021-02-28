@@ -31,7 +31,6 @@ class ProfilesController extends Controller
             ],
             'name' => ['string', 'required', 'max:255'],
             'description' => ['string', 'max:255'],
-            'avatar' => ['file'],
             'email' => [
                 'string',
                 'required',
